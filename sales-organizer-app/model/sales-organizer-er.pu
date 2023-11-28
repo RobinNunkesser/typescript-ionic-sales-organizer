@@ -1,0 +1,25 @@
+@startuml
+class "TeamMember" as Team {
+    No
+    Surname
+    Name
+    Location
+    Department
+}
+
+class "Task" as Task {
+    No
+    Information 
+    Deadline
+}
+
+class "Customer" as Customer {
+    No
+    Name 
+    Address
+    Branche
+}
+
+Task "1" --- "1" Customer : "belongs to"
+Team "1" --- "n" Task : "has"
+@enduml

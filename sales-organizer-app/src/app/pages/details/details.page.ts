@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent,IonButton,IonBackButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent,IonButton,IonBackButton],
 })
-export class DetailsPage implements OnInit {
+export class DetailsPage implements OnInit {  
+  private activatedRoute = inject(ActivatedRoute);
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit() {    
   }
-
 }

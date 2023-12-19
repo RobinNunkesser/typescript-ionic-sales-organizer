@@ -10,9 +10,13 @@ import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent,
   imports: [IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent,IonButton,IonBackButton],
 })
 export class DetailsPage implements OnInit {  
-  private activatedRoute = inject(ActivatedRoute);
-  constructor() {}
+
+  task = null;
+   
+  constructor(private activatedRoute : ActivatedRoute) {}
 
   ngOnInit() {    
+    console.log(this.activatedRoute);
+    //this.task = this.activatedRoute.snapshot.params;
   }
 }

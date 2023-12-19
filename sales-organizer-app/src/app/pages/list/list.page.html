@@ -13,6 +13,11 @@
       <ion-title size="large">List</ion-title>
     </ion-toolbar>
   </ion-header>
-
-    <ion-button href="/details" routerDirection="forward">Show details</ion-button>   
+  test
+  {{tasks[1].title}}
+  <ion-content>
+  <ion-item **ngFor="let task of tasks">
+    <ion-label>{{task.title}}</ion-label>
+  </ion-item>
+</ion-content>
 </ion-content>

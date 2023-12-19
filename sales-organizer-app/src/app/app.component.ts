@@ -13,6 +13,7 @@ import { albumsSharp, globeSharp, peopleSharp } from 'ionicons/icons';
   imports: [RouterLink, RouterLinkActive, CommonModule, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet],
 })
 export class AppComponent {
+
   public appPages = [
     { title: 'All Tasks', url: '/list', icon: 'albums' },
     { title: 'Customers', url: '/customers', icon: 'globe' },

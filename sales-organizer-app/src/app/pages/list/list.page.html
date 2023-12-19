@@ -12,12 +12,13 @@
     <ion-toolbar>
       <ion-title size="large">List</ion-title>
     </ion-toolbar>
-  </ion-header>
-  test
-  {{tasks[1].title}}
-  <ion-content>
-  <ion-item **ngFor="let task of tasks">
+  </ion-header>  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addTask()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-item *ngFor="let task of tasks" href="/details">
     <ion-label>{{task.title}}</ion-label>
   </ion-item>
-</ion-content>
 </ion-content>

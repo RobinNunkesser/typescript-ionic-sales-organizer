@@ -15,7 +15,8 @@ export class DetailsPage implements OnInit {
    
   constructor(private activatedRoute : ActivatedRoute) {}
 
-  ngOnInit() {    
+  ngOnInit() {   
+    console.log('Entering details'); 
     console.log(this.activatedRoute);
     //this.task = this.activatedRoute.snapshot.params;
   }

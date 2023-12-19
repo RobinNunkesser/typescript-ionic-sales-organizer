@@ -18,12 +18,15 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <ion-item *ngFor="let task of tasks">
+  <ion-item *ngFor="let task of tasks; let i = index">
     <ion-label>{{task.title}}</ion-label>
-    <ion-button (click)="deleteTask()">
+    <ion-button (click)="updateTask(i)">
+      <ion-icon name="create"></ion-icon>
+    </ion-button>
+    <ion-button (click)="deleteTask(i)">
       <ion-icon name="trash"></ion-icon>
     </ion-button>
-    <ion-button>
+    <ion-button href="/details">
       <ion-icon name="arrow-forward"></ion-icon>
     </ion-button>
   </ion-item>

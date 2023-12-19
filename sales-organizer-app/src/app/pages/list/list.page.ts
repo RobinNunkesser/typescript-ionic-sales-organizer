@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import {AlertController} from '@ionic/angular';
 import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, IonButton, IonNav, IonItem, IonLabel, IonFab, IonFabButton, IonIcon } from '@ionic/angular/standalone';
+import { trash,trashSharp, arrowForwardSharp, addSharp } from 'ionicons/icons';
 
 @Component({
   selector: 'app-list',
@@ -17,9 +18,27 @@ export class ListPage implements OnInit {
   {number:2,title: 'Trip to Berlin'},
   {number:3,title: 'Board Meeting'}];
 
-  async deleteTask() {
-    
+  async deleteTask(index:number) {
+    this.tasks.splice(index,1);
 
+  }
+
+  async updateTask(index:number) {
+    const alert = await this.alertCtrl.create({
+      header: 'Update Task',
+      message: 'Type in your new task title to update',
+      inputs: [{
+        name: 'editTitle',
+        placeholder: 'New task title',
+        type: 'text'
+      }],
+      buttons: [
+        {text:'Cancel',
+      role:'cancel'},
+        {text:'Update',
+      handler: (data) => {this.tasks[index].title = data.editTitle;}}]
+    });
+    await alert.present();    
   }
 
   async addTask() {

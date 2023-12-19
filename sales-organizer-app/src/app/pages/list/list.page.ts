@@ -17,6 +17,11 @@ export class ListPage implements OnInit {
   {number:2,title: 'Trip to Berlin'},
   {number:3,title: 'Board Meeting'}];
 
+  async deleteTask() {
+    
+
+  }
+
   async addTask() {
     const alert = await this.alertCtrl.create({
       header: 'Add Task',

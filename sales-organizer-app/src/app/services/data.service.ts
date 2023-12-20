@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Firestore, collection, collectionData} from '@angular/fire/firestore'
+import { Firestore, collection, collectionData, addDoc } from '@angular/fire/firestore'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,6 +12,11 @@ export class DataService {
   getTasks(): Observable<Task[]> {
     const tasksRef = collection(this.firestore, 'tasks');
     return collectionData(tasksRef, {idField: 'id'}) as Observable<Task[]>;
+  }
+
+  addTask(task: Task) {
+    const tasksRef = collection(this.firestore, 'tasks');
+    return addDoc(tasksRef, task);
   }
 }
 

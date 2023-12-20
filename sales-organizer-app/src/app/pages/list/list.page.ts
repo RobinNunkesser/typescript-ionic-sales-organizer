@@ -1,5 +1,7 @@
+import { DataService } from './../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { Task } from './../../services/data.service';
 
 @Component({
   selector: 'app-list',
@@ -8,9 +10,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class ListPage implements OnInit {  
 
-  tasks = [{number:1,title: 'Meeting with Susan'},
-  {number:2,title: 'Trip to Berlin'},
-  {number:3,title: 'Board Meeting'}];
+  tasks : Task[] = [ ];
 
   async deleteTask(index:number) {
     this.tasks.splice(index,1);
@@ -47,12 +47,19 @@ export class ListPage implements OnInit {
         {text:'Cancel',
       role:'cancel'},
         {text:'Add',
-      handler: (data) => {this.tasks.push(data)}}]
+      handler: (data) => {this.dataService.addTask({
+        title: data.title,
+        text: '',
+        teammember: '',
+        customer: ''
+      })}}]
     });
     await alert.present();
   }
 
-  constructor(public alertCtrl: AlertController) {}
+  constructor(private dataService: DataService, public alertCtrl: AlertController) {
+    this.dataService.getTasks().subscribe(data => {this.tasks = data})
+  }
 
   ngOnInit() {    
   }

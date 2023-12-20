@@ -8,13 +8,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailsPage implements OnInit {
 
-  task = null;
+  task : any = null;
 
   constructor(private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
     console.log(this.activatedRoute);
-    //this.task = this.activatedRoute.snapshot.params;
+    this.task = this.activatedRoute.snapshot.params;
   }
 
 }

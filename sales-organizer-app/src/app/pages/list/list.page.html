@@ -26,7 +26,7 @@
     <ion-button (click)="deleteTask(i)">
       <ion-icon name="trash"></ion-icon>
     </ion-button>
-    <ion-button href="/details">
+    <ion-button [routerLink]="['/details', task]" routerDirection="forward">
       <ion-icon name="arrow-forward"></ion-icon>
     </ion-button>
   </ion-item>

@@ -13,4 +13,7 @@
       <ion-title size="large">Customers</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-item *ngFor="let customer of customers" [routerLink]="['/selected-tasks', {category: 'customer', criteria: customer.name}]" routerDirection="forward">
+    <ion-label>{{customer.name}}</ion-label>
+  </ion-item>
 </ion-content>

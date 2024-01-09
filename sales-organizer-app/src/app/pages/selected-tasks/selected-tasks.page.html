@@ -10,4 +10,7 @@
       <ion-title size="large">SelectedTasks</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-item *ngFor="let task of tasks" [routerLink]="['/details']" routerDirection="forward">
+    <ion-label>{{task.title}}</ion-label>
+  </ion-item>
 </ion-content>

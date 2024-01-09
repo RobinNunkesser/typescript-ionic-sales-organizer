@@ -2,6 +2,7 @@ import { DataService } from './../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Task } from './../../services/data.service';
+import { sortBy } from 'lodash';
 
 @Component({
   selector: 'app-list',
@@ -58,7 +59,7 @@ export class ListPage implements OnInit {
   }
 
   constructor(private dataService: DataService, public alertCtrl: AlertController) {
-    this.dataService.getTasks().subscribe(data => {this.tasks = data})
+    this.dataService.getTasks().subscribe(data => {this.tasks = sortBy(data,'title')})
   }
 
   ngOnInit() {    

@@ -13,4 +13,7 @@
       <ion-title size="large">Team</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-item *ngFor="let teammember of teammembers" [routerLink]="['/list']" routerDirection="forward">
+    <ion-label>{{teammember.name}}</ion-label>
+  </ion-item>
 </ion-content>
